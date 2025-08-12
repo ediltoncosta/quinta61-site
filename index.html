@@ -93,33 +93,32 @@ dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px)}dia
   <img id="lbImg" alt="">
   <p id="lbCap"></p>
 </dialog>
-
 <script>
-// >>> LISTA DE IMAGENS — coloque seus arquivos na pasta /images com estes nomes
 const imagens = [
-  { src:"images/Álamos - malbec 2023 (1).png",                      titulo:"Álamos – Malbec 2023" },
-  { src:"images/Alma Negra - M BLEND (RED BLEND) (2).png",         titulo:"Alma Negra – M Blend (Red Blend)" },
-  { src:"images/ANGÉLICA ZAPATA- Cabernet Franc Alta (1).png",     titulo:"Angélica Zapata – Cabernet Franc Alta" },
-  { src:"images/ANGÉLICA ZAPATA- Cabernet Sauvignon Alta (1).png", titulo:"Angélica Zapata – Cabernet Sauvignon Alta" },
-  { src:"images/Angélica Zapata- malbec Alta (1).png",             titulo:"Angélica Zapata – Malbec Alta" },
-  { src:"images/DV Catena - CHARDONNAY • CHARDONNAY (1).png",      titulo:"DV Catena – Chardonnay • Chardonnay" },
-  { src:"images/DV Catena - Malbec (1).png",                       titulo:"DV Catena – Malbec" },
-  { src:"images/DV Catena - Cabernet Malbec (1).png",              titulo:"DV Catena – Cabernet Malbec" },
-  { src:"images/Don Melchor - CABERNET SAUVIGNON.png",             titulo:"Don Melchor – Cabernet Sauvignon" },
-  { src:"images/O Enemigo - Bonarda (1).png",                      titulo:"El Enemigo – Bonarda" },
-  { src:"images/El Enemigo - Malbec (1).png",                      titulo:"El Enemigo – Malbec" },
-  { src:"images/Lagrima Canela - CHARDONNAY • SEMILLON (2).png",   titulo:"Lágrima Canela – Chardonnay • Semillon" },
-  { src:"images/Lote 44 - malbec 2022 (1).png",                    titulo:"Lote 44 – Malbec 2022" },
-  { src:"images/Luigi Bosca - malbec (1).png",                     titulo:"Luigi Bosca – Malbec" },
-  { src:"images/Vinhedo Malbec Adrianna 2022 (1).png",             titulo:"DV Catena – Malbec Adrianna Vineyard 2022" },
-  { src:"images/Mataojo - TANNAT RESERVA.png",                     titulo:"Mataojo – Tannat Reserva" },
-  { src:"images/Mataojo - Sauvignon Reserva (1).png",              titulo:"Mataojo – Cabernet Sauvignon Reserva" },
-  { src:"images/NICOLAS CATENA - LA MARCHIGIANA BONARDA (1).png",  titulo:"Nicolás Catena – La Marchigiana Bonarda" },
-  { src:"images/Petit Vega 28 Meses - TEMPRANILLO (1).png",        titulo:"Petit Vega – 28 Meses (Tempranillo)" },
-  { src:"images/Petit Vega 8 Meses - TEMPRANILLO.png",             titulo:"Petit Vega – 8 Meses (Tempranillo)" },
-  { src:"images/Rutini - Cabernet - Malbec (1).png",               titulo:"Rutini – Cabernet • Malbec" },
-  { src:"images/VIK MILLA CALA - MISTURA VERMELHA.png",            titulo:"VIK Milla Cala – Mistura Vermelha" }
+  {src:"imagens/imagens/Álamos - malbec 2023 (1).png", titulo:"Álamos Malbec 2023"},
+  {src:"imagens/imagens/Alma Negra - M BLEND (RED BLEND) (2).png", titulo:"Alma Negra Red Blend"},
+  {src:"imagens/imagens/ANGÉLICA ZAPATA- Cabernet Franc Alta (1).png", titulo:"Angélica Zapata Cabernet Franc"},
+  {src:"imagens/imagens/ANGÉLICA ZAPATA- Cabernet Sauvignon Alta (1).png", titulo:"Angélica Zapata Cabernet Sauvignon"},
+  {src:"imagens/imagens/Angélica Zapata- malbec Alta (1).png", titulo:"Angélica Zapata Malbec Alta"},
+  {src:"imagens/imagens/Don Melchor - CABERNET SAUVIGNON.png", titulo:"Don Melchor Cabernet Sauvignon"},
+  {src:"imagens/imagens/DV Catena - CHARDONNAY • CHARDONNAY (1).png", titulo:"DV Catena Chardonnay-Chardonnay"},
+  {src:"imagens/imagens/DV Catena - Malbec (1).png", titulo:"DV Catena Malbec"},
+  {src:"imagens/imagens/DV Catena - Cabernet Malbec (1).png", titulo:"DV Catena Cabernet Malbec"},
+  {src:"imagens/imagens/O Enemigo - Bonarda (1).png", titulo:"El Enemigo Bonarda"},
+  {src:"imagens/imagens/El Enemigo - Malbec (1).png", titulo:"El Enemigo Malbec"},
+  {src:"imagens/imagens/Lagrima Canela - CHARDONNAY • SEMILLON (2).png", titulo:"Lágrima Canela (Chardonnay • Semillon)"},
+  {src:"imagens/imagens/Lote 44 - malbec 2022 (1).png", titulo:"Lote 44 Malbec 2022"},
+  {src:"imagens/imagens/Luigi Bosca - malbec (1).png", titulo:"Luigi Bosca Malbec"},
+  {src:"imagens/imagens/Vinhedo Malbec Adrianna 2022 (1).png", titulo:"DV Catena Malbec Adrianna Vineyard 2022"},
+  {src:"imagens/imagens/Mataojo - TANNAT RESERVA.png", titulo:"Mataojo Tannat Reserva"},
+  {src:"imagens/imagens/Mataojo - Sauvignon Reserva (1).png", titulo:"Mataojo Cabernet Sauvignon Reserva"},
+  {src:"imagens/imagens/NICOLAS CATENA - LA MARCHIGIANA BONARDA (1).png", titulo:"Nicolás Catena La Marchigiana Bonarda"},
+  {src:"imagens/imagens/Rutini - Cabernet - Malbec (1).png", titulo:"DV Catena Cabernet Malbec (variação de rótulo)"},
+  {src:"imagens/imagens/Petit Vega 8 Meses - TEMPRANILLO.png", titulo:"Petit Vega 8 Meses"},
+  {src:"imagens/imagens/Petit Vega 28 Meses - TEMPRANILLO (1).png", titulo:"Petit Vega 28 Meses"},
+  {src:"imagens/imagens/VIK MILLA CALA - MISTURA VERMELHA.png", titulo:"Petit Vega Tempranillo (variação)"}
 ];
+
 // <<< fim da lista
 
 const grid=document.getElementById('grid');
