@@ -9,63 +9,96 @@
 :root{--bg:#121019;--ink:#eae7f5;--accent:#00a884;--brand:#6a4ef5}
 *{box-sizing:border-box}
 body{margin:0;background:#0f0e12;color:#eee;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
-.container{max-width:1100px;margin:auto;padding:0 20px}
-h1{font-size:clamp(28px,4vw,44px);margin:.2em 0 .3em}
-h2{font-size:clamp(22px,3vw,30px);margin:1.2rem 0 .5rem}
+.container{max-width:1200px;margin:auto;padding:0 20px}
+h1{font-size:clamp(30px,4vw,48px);margin:.2em 0 .3em}
+h2{font-size:clamp(22px,3vw,32px);margin:1.2rem 0 .6rem}
 a{color:#7eb6ff;text-decoration:none}
 a:hover{filter:brightness(1.1)}
+
 /* header */
 .header{position:sticky;top:0;z-index:10;background:#14121a;border-bottom:1px solid #26222c}
 .header .container{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#fff;text-decoration:none}
-.actions{display:flex;gap:10px;align-items:center}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .btn{display:inline-block;background:var(--accent);color:#002611;text-decoration:none;font-weight:800;border-radius:12px;padding:10px 14px;white-space:nowrap}
 .icon{display:inline-flex;align-items:center;gap:8px}
 .icon svg{vertical-align:middle}
+
 /* hero */
-.hero{background:radial-gradient(1200px 400px at 20% -10%,#2a2433 0%,#14121a 50%,#0f0e12 100%);color:#fff}
-.hero .container{padding:48px 20px}
-.hero p{opacity:.9;margin:0}
-.meta{color:#aaa;font-size:.9rem;margin:.4rem 0 1rem}
+.hero{background:radial-gradient(1200px 420px at 20% -10%,#2a2433 0%,#14121a 50%,#0f0e12 100%);color:#fff}
+.hero .container{padding:52px 20px}
+.hero p{opacity:.92;margin:0}
+.meta{color:#aaa;font-size:.95rem;margin:.5rem 0 1.1rem}
+
 /* busca */
-.searchbar{display:flex;gap:10px;align-items:center;background:#17151d;border:1px solid #2b2732;border-radius:12px;padding:8px 10px;margin-top:12px}
+.searchbar{display:flex;gap:10px;align-items:center;background:#17151d;border:1px solid #2b2732;border-radius:12px;padding:10px 12px;margin-top:12px}
 .searchbar input{flex:1;border:none;outline:none;background:transparent;color:#fff;font-size:1rem}
-/* carrossel */
-.carousel{position:relative;margin:18px 0 8px}
-.track{display:flex;overflow-x:auto;gap:14px;padding:8px 4px;scroll-behavior:smooth}
+
+/* CARROSSEL (maior e mais atrativo) */
+.carousel{position:relative;margin:22px 0 10px}
+.track{display:flex;overflow-x:auto;gap:16px;padding:10px 6px;scroll-behavior:smooth;scroll-snap-type:x mandatory}
 .track::-webkit-scrollbar{height:8px}
 .track::-webkit-scrollbar-thumb{background:#2a2632;border-radius:8px}
-.slide{min-width:260px;flex:0 0 auto;background:#16141a;border:1px solid #26222c;border-radius:14px;overflow:hidden;transition:transform .25s ease, box-shadow .25s ease}
-.slide:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.25)}
-.slide img{width:100%;height:280px;object-fit:contain;background:#111;padding:10px;display:block;transition:transform .25s ease}
-.slide:hover img{transform:scale(1.02)}
-.slide .cap{padding:10px 12px}
-.navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#0009;color:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer}
-.navbtn:hover{background:#000c}
-.prev{left:-8px} .next{right:-8px}
+.slide{
+  min-width:360px;          /* mais largo */
+  flex:0 0 auto;
+  background:#16141a;border:1px solid #26222c;border-radius:16px;overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease; scroll-snap-align:center
+}
+.slide:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.slide img{
+  width:100%;
+  height:420px;             /* mais alto = mais imersivo */
+  object-fit:cover;         /* preenche e valoriza a imagem */
+  background:#111;
+  display:block;
+  transition:transform .35s ease
+}
+.slide:hover img{transform:scale(1.06)}
+.slide .cap{padding:12px 14px}
+.navbtn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:#000a;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer
+}
+.navbtn:hover{background:#000d}
+.prev{left:-6px} .next{right:-6px}
+
 /* grid catálogo */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:#16141a;border:1px solid #26222c;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.2);text-align:center;transition:transform .25s ease, box-shadow .25s ease}
-.card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.25)}
-.card img{width:100%;height:auto;object-fit:contain;background:#111;display:block;padding:10px;transition:transform .25s ease}
-.card:hover img{transform:scale(1.01)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{
+  background:#16141a;border:1px solid #26222c;border-radius:14px;overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);text-align:center;
+  transition:transform .25s ease, box-shadow .25s ease
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.card img{width:100%;height:auto;object-fit:contain;background:#111;display:block;padding:10px}
 .card figcaption{padding:10px 12px}
 .badge{display:inline-block;background:#243027;color:#a9ffdd;border-radius:6px;padding:2px 8px;font-size:.78rem;margin-top:6px}
-.cta{background:#14121a;border-top:1px solid #26222c;margin-top:32px}
+
+/* CTA e footer */
+.cta{background:#14121a;border-top:1px solid #26222c;margin-top:36px}
 .cta .container{padding:28px 20px;text-align:center}
 .footer{background:#14121a;border-top:1px solid #26222c}
-.footer .container{padding:18px 20px;font-size:.9rem;color:#bbb;text-align:center}
+.footer .container{padding:18px 20px;font-size:.95rem;color:#bbb;text-align:center}
 .advert-note{font-size:1rem;font-weight:bold;color:#fff;margin-top:8px}
+
 /* lightbox */
-dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px);background:#111}
+dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,1000px);background:#111}
 dialog::backdrop{background:rgba(0,0,0,.6)}
 #lb img{max-width:100%;height:auto;display:block;background:#111}
 #lb p{margin:0;padding:10px 14px;background:#111;color:#ddd}
 #close{position:absolute;top:6px;right:8px;border:none;background:#0009;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer}
+
 /* botão flutuante WhatsApp */
 .fab{position:fixed;right:18px;bottom:18px;background:#25d366;color:#002611;border:none;border-radius:999px;padding:12px 16px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.3);z-index:20}
 .fab:hover{filter:brightness(1.05)}
+
 small.muted{color:#9a96a6}
+
+@media (max-width:560px){
+  .slide{min-width:85vw}
+  .slide img{height:340px}
+}
 </style>
 </head>
 <body>
@@ -89,7 +122,12 @@ small.muted{color:#9a96a6}
     <div class="container">
       <h1>Entrega Premium de Vinhos</h1>
       <p>Seleção de rótulos com entrega no DF. <strong>Pagamento na entrega.</strong></p>
-      <div class="meta">Atendimento oficial via WhatsApp • seg–sáb, 10h–20h • <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a></div>
+      <div class="meta">
+        Atendimento oficial via WhatsApp • seg–sáb, 10h–20h •
+        <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> •
+        <a href="https://www.instagram.com/quinta61vinhos" target="_blank" rel="noopener">@quinta61vinhos</a>
+      </div>
+
       <!-- busca -->
       <div class="searchbar" role="search">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#8a8496" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
@@ -98,7 +136,7 @@ small.muted{color:#9a96a6}
     </div>
   </section>
 
-  <!-- CARROSSEL -->
+  <!-- CARROSSEL (maior) -->
   <section class="container">
     <h2>Destaques</h2>
     <div class="carousel" aria-label="Carrossel de destaques">
@@ -106,7 +144,7 @@ small.muted{color:#9a96a6}
       <div id="track" class="track"></div>
       <button class="navbtn next" aria-label="Próximo">›</button>
     </div>
-    <small class="muted">Arraste com o dedo/mouse para navegar.</small>
+    <small class="muted">Arraste com o dedo/mouse, use as setas ou deixe rolar automaticamente.</small>
   </section>
 
   <!-- CATÁLOGO -->
@@ -126,7 +164,10 @@ small.muted{color:#9a96a6}
 
 <footer class="footer">
   <div class="container">
-    <p>© <span id="year"></span> Quinta61 • Brasília – DF • <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> • <a href="https://www.instagram.com/quinta61vinhos" target="_blank" rel="noopener">@quinta61vinhos</a></p>
+    <p>© <span id="year"></span> Quinta61 • Brasília – DF •
+      <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> •
+      <a href="https://www.instagram.com/quinta61vinhos" target="_blank" rel="noopener">@quinta61vinhos</a>
+    </p>
     <p class="advert-note">Publicidade gerenciada por Vivat Phraterno Internet Brasil – CNPJ 41.229.452/0001-27</p>
     <p><small class="muted">Operamos conforme a <a href="https://www.whatsapp.com/legal/commerce-policy" target="_blank" rel="noopener">Política Empresarial do WhatsApp</a>. Venda proibida para menores de 18 anos. Se beber, não dirija.</small></p>
   </div>
@@ -171,7 +212,7 @@ const imagens = [
 
 // ====== Render carrossel (destaques) ======
 const track = document.getElementById('track');
-const destaques = imagens.slice(0, 8);
+const destaques = imagens.slice(0, 10);
 track.innerHTML = destaques.map(i => `
   <article class="slide">
     <img loading="lazy" src="${i.src}" alt="${i.titulo}">
@@ -179,33 +220,32 @@ track.innerHTML = destaques.map(i => `
   </article>
 `).join('');
 
-// ====== Navegação carrossel (setas, drag, auto-contínuo) ======
+// ====== Navegação carrossel (setas, drag, auto-contínuo maior) ======
 const prev = document.querySelector('.prev'), next = document.querySelector('.next');
-// clique
-const step = 320; // distância a cada clique
+const step = 380; // px por clique (combina com min-width)
+
+/* clique */
 prev.onclick = ()=> track.scrollBy({left:-step,behavior:'smooth'});
 next.onclick = ()=> track.scrollBy({left: step,behavior:'smooth'});
 
-// drag/arrastar
+/* drag/arrastar */
 let isDown=false,startX,scrollStart;
 track.addEventListener('pointerdown',e=>{isDown=true;track.setPointerCapture(e.pointerId);startX=e.clientX;scrollStart=track.scrollLeft; pause();});
 track.addEventListener('pointermove',e=>{if(!isDown) return; const dx=e.clientX-startX; track.scrollLeft=scrollStart-dx;});
-track.addEventListener('pointerup',e=>{isDown=false;resume();});
+track.addEventListener('pointerup',()=>{isDown=false;resume();});
 track.addEventListener('pointerleave',()=>{isDown=false;});
 
-// auto-scroll contínuo com loop
-let raf, speed = 0.7; // aumente para mais rápido (px/frame)
+/* auto-scroll contínuo com loop (mais rápido) */
+let raf, speed = 1.2; // ↑ aumente/diminua a velocidade (px/frame)
 function tick(){
   track.scrollLeft += speed;
-  // loop simples
   if(track.scrollLeft >= track.scrollWidth - track.clientWidth - 1){
-    track.scrollLeft = 0;
+    track.scrollLeft = 0; // loop
   }
   raf = requestAnimationFrame(tick);
 }
 function pause(){ cancelAnimationFrame(raf); }
 function resume(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); }
-// pausa ao passar o mouse
 track.addEventListener('mouseenter', pause);
 track.addEventListener('mouseleave', resume);
 resume(); // inicia
