@@ -7,9 +7,11 @@
 <meta name="description" content="Quinta61 • Entrega premium de vinhos selecionados. Entrega no DF. Pagamento na entrega.">
 <style>
 :root{--bg:#121019;--ink:#1d1524;--accent:#00a884;--brand:#6a4ef5}
-*{box-sizing:border-box}body{margin:0;background:#faf8f6;color:#222;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#faf8f6;color:#222;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
 .container{max-width:1100px;margin:auto;padding:0 20px}
-h1{font-size:clamp(28px,4vw,44px);margin:.2em 0 .3em}h2{font-size:clamp(22px,3vw,30px);margin:1.2rem 0 .5rem}
+h1{font-size:clamp(28px,4vw,44px);margin:.2em 0 .3em}
+h2{font-size:clamp(22px,3vw,30px);margin:1.2rem 0 .5rem}
 a{color:#1a66ff}
 .header{background:#fff;border-bottom:1px solid #eee}
 .header .container{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px}
@@ -18,17 +20,27 @@ a{color:#1a66ff}
 .hero .container{padding:40px 20px}
 .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 14px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.card img{width:100%;height:280px;object-fit:cover;background:#f2f2f2;display:block}
+.card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);text-align:center}
+.card img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: #f2f2f2;
+  display: block;
+  padding: 10px;
+}
 .card figcaption{padding:10px 12px}
 .badge{display:inline-block;background:#f5f2ea;color:#594a3a;border-radius:6px;padding:2px 8px;font-size:.78rem;margin-top:6px}
 .about .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;padding:0;list-style:none;margin:8px 0 0}
 .cta{background:#f7f5ff;border-top:1px solid #eee;margin-top:32px}
 .cta .container{padding:28px 20px;text-align:center}
-.footer{background:#fff;border-top:1px solid #eee}.footer .container{padding:18px 20px;font-size:.9rem;color:#000;text-align:center}
+.footer{background:#fff;border-top:1px solid #eee}
+.footer .container{padding:18px 20px;font-size:.9rem;color:#000;text-align:center}
 .advert-note{font-size:1rem;font-weight:bold;color:#000;margin-top:8px}
-dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px)}dialog::backdrop{background:rgba(0,0,0,.6)}
-#lb img{max-width:100%;height:auto;display:block}#lb p{margin:0;padding:10px 14px;background:#fff}
+dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+#lb img{max-width:100%;height:auto;display:block}
+#lb p{margin:0;padding:10px 14px;background:#fff}
 #close{position:absolute;top:6px;right:8px;border:none;background:#0009;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer}
 @media (prefers-color-scheme: dark){
   body{background:#0f0e12;color:#eee}
@@ -60,7 +72,7 @@ dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px)}dia
       <li>Telefone/WhatsApp: <a href="https://wa.me/5561992642524">(61) 99264-2524</a></li>
       <li>E-mail: <a href="mailto:contato@quinta61.com.br">contato@quinta61.com.br</a></li>
       <li>Endereço: Brasília – DF, Brasil</li>
-      <li>CNPJ: 00.000.000/0000-00 <!-- troque pelo seu --></li>
+      <li>CNPJ: 00.000.000/0000-00</li>
       <li>Horário: seg–sáb, 10h às 20h</li>
     </ul>
     <p class="small">Operamos conforme a <a href="https://www.whatsapp.com/legal/commerce-policy" target="_blank" rel="noopener">Política Empresarial do WhatsApp</a>. Venda proibida para menores de 18 anos. Se beber, não dirija.</p>
@@ -87,7 +99,7 @@ dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px)}dia
   </div>
 </footer>
 
-<!-- Lightbox -->
+<!-- lightbox -->
 <dialog id="lb" aria-label="Visualização da imagem">
   <button id="close" aria-label="Fechar">✕</button>
   <img id="lbImg" alt="">
@@ -95,7 +107,6 @@ dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px)}dia
 </dialog>
 
 <script>
-// lista de imagens (pasta correta: images/)
 const imagens = [
   { src:"images/alamos-malbec-2023-1.png",                titulo:"Álamos – Malbec 2023" },
   { src:"images/alma-negra-redblend.png",                 titulo:"Alma Negra – Red Blend" },
@@ -111,8 +122,8 @@ const imagens = [
   { src:"images/lagrima-canela-chardonnay-o-semillon-2.png", titulo:"Lágrima Canela – Chardonnay • Semillon" },
   { src:"images/lote-44-malbec-2022-1.png",                titulo:"Lote 44 – Malbec 2022" },
   { src:"images/luigi-bosca-malbec-1.png",                 titulo:"Luigi Bosca – Malbec" },
-  { src:"images/malbec-adrianna-vineyard-2022-1.png",      titulo:"Malbec Adrianna Vineyard 2022" },
-  { src:"images/mataojo-sauvignon-reserva-1.png",          titulo:"Mataojo – Sauvignon Reserva" },
+  { src:"images/malbec-adrianna-vineyard-2022-1.png",      titulo:"DV Catena – Malbec Adrianna Vineyard 2022" },
+  { src:"images/mataojo-sauvignon-reserva-1.png",          titulo:"Mataojo – Cabernet Sauvignon Reserva" },
   { src:"images/mataojo-tannat-reserva.png",               titulo:"Mataojo – Tannat Reserva" },
   { src:"images/nicolas-catena-la-marchigiana-bonarda-1.png", titulo:"Nicolás Catena – La Marchigiana Bonarda" },
   { src:"images/petit-vega-28-meses-tempranillo-1.png",    titulo:"Petit Vega – 28 Meses (Tempranillo)" },
@@ -120,7 +131,7 @@ const imagens = [
   { src:"images/rutini-cabernet-malbec-1.png",             titulo:"Rutini – Cabernet • Malbec" },
   { src:"images/vik-milla-cala-red-blend.png",             titulo:"VIK Milla Cala – Red Blend" }
 ];
-// render
+
 const grid=document.getElementById('grid');
 grid.innerHTML = imagens.map(i => `
   <figure class="card">
@@ -129,15 +140,18 @@ grid.innerHTML = imagens.map(i => `
   </figure>
 `).join('');
 
-// lightbox
-const lb = document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
+const lb = document.getElementById('lb'),
+      lbImg=document.getElementById('lbImg'),
+      lbCap=document.getElementById('lbCap');
 document.addEventListener('click', e=>{
-  const img=e.target.closest('.card img'); if(!img) return;
-  lbImg.src=img.src; lbImg.alt=img.alt; lbCap.textContent=img.alt; lb.showModal();
+  const img=e.target.closest('.card img');
+  if(!img) return;
+  lbImg.src=img.src;
+  lbImg.alt=img.alt;
+  lbCap.textContent=img.alt;
+  lb.showModal();
 });
 document.getElementById('close').onclick=()=>lb.close();
-
-// ano
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
