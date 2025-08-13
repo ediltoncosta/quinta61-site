@@ -8,78 +8,96 @@
 <style>
 :root{--bg:#121019;--ink:#1d1524;--accent:#00a884;--brand:#6a4ef5}
 *{box-sizing:border-box}
-body{margin:0;background:#faf8f6;color:#222;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
+body{margin:0;background:#0f0e12;color:#eee;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif}
 .container{max-width:1100px;margin:auto;padding:0 20px}
 h1{font-size:clamp(28px,4vw,44px);margin:.2em 0 .3em}
 h2{font-size:clamp(22px,3vw,30px);margin:1.2rem 0 .5rem}
-a{color:#1a66ff}
-.header{background:#fff;border-bottom:1px solid #eee}
+a{color:#7eb6ff;text-decoration:none}
+.header{position:sticky;top:0;z-index:10;background:#14121a;border-bottom:1px solid #26222c}
 .header .container{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;color:#111}
-.hero{background:linear-gradient(135deg,var(--bg),#2a2433);color:#fff}
-.hero .container{padding:40px 20px}
-.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;color:#fff}
+.hero{background:radial-gradient(1200px 400px at 20% -10%,#2a2433 0%,#14121a 50%,#0f0e12 100%);color:#fff}
+.hero .container{padding:48px 20px}
+.hero p{opacity:.9;margin:0}
+.btn{display:inline-block;background:var(--accent);color:#001c12;text-decoration:none;font-weight:800;border-radius:12px;padding:12px 16px}
+.btn:focus,.btn:hover{filter:brightness(1.05)}
+/* busca */
+.searchbar{display:flex;gap:10px;align-items:center;background:#17151d;border:1px solid #2b2732;border-radius:12px;padding:8px 10px}
+.searchbar input{flex:1;border:none;outline:none;background:transparent;color:#fff;font-size:1rem}
+/* carrossel */
+.carousel{position:relative;margin:18px 0 8px}
+.track{display:flex;overflow-x:auto;scroll-behavior:smooth;gap:14px;padding:8px 4px}
+.track::-webkit-scrollbar{height:8px}
+.track::-webkit-scrollbar-thumb{background:#2a2632;border-radius:8px}
+.slide{min-width:260px;flex:0 0 auto;background:#16141a;border:1px solid #26222c;border-radius:14px;overflow:hidden}
+.slide img{width:100%;height:280px;object-fit:contain;background:#111;padding:10px;display:block}
+.slide .cap{padding:10px 12px}
+.navbtn{position:absolute;top:50%;transform:translateY(-50%);background:#0009;color:#fff;border:none;width:40px;height:40px;border-radius:50%;cursor:pointer}
+.navbtn:hover{background:#000c}
+.navbtn[disabled]{opacity:.3;cursor:not-allowed}
+.prev{left:-8px} .next{right:-8px}
+/* grid catálogo */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.card{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);text-align:center}
-.card img{
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  background: #f2f2f2;
-  display: block;
-  padding: 10px;
-}
+.card{background:#16141a;border:1px solid #26222c;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.2);text-align:center}
+.card img{width:100%;height:auto;object-fit:contain;background:#111;display:block;padding:10px}
 .card figcaption{padding:10px 12px}
-.badge{display:inline-block;background:#f5f2ea;color:#594a3a;border-radius:6px;padding:2px 8px;font-size:.78rem;margin-top:6px}
-.about .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;padding:0;list-style:none;margin:8px 0 0}
-.cta{background:#f7f5ff;border-top:1px solid #eee;margin-top:32px}
+.badge{display:inline-block;background:#243027;color:#a9ffdd;border-radius:6px;padding:2px 8px;font-size:.78rem;margin-top:6px}
+.meta{color:#aaa;font-size:.9rem;margin:.4rem 0 1rem}
+.cta{background:#14121a;border-top:1px solid #26222c;margin-top:32px}
 .cta .container{padding:28px 20px;text-align:center}
-.footer{background:#fff;border-top:1px solid #eee}
-.footer .container{padding:18px 20px;font-size:.9rem;color:#000;text-align:center}
-.advert-note{font-size:1rem;font-weight:bold;color:#000;margin-top:8px}
-dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px)}
+.footer{background:#14121a;border-top:1px solid #26222c}
+.footer .container{padding:18px 20px;font-size:.9rem;color:#bbb;text-align:center}
+.advert-note{font-size:1rem;font-weight:bold;color:#fff;margin-top:8px}
+/* lightbox */
+dialog#lb{border:none;border-radius:12px;padding:0;max-width:min(95vw,900px);background:#111}
 dialog::backdrop{background:rgba(0,0,0,.6)}
-#lb img{max-width:100%;height:auto;display:block}
-#lb p{margin:0;padding:10px 14px;background:#fff}
+#lb img{max-width:100%;height:auto;display:block;background:#111}
+#lb p{margin:0;padding:10px 14px;background:#111;color:#ddd}
 #close{position:absolute;top:6px;right:8px;border:none;background:#0009;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer}
-@media (prefers-color-scheme: dark){
-  body{background:#0f0e12;color:#eee}
-  .card{background:#16141a;border-color:#26222c}
-  .header,.footer{background:#14121a;border-color:#26222c}
-}
+/* botão flutuante WhatsApp */
+.fab{position:fixed;right:18px;bottom:18px;background:#25d366;color:#002611;border:none;border-radius:999px;padding:12px 16px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.3)}
+.fab:hover{filter:brightness(1.05)}
+small.muted{color:#9a96a6}
 </style>
 </head>
 <body>
+
 <header class="header">
   <div class="container">
     <a class="brand" href="#"><span>Quinta61</span></a>
-    <a class="btn" href="https://wa.me/5561992642524" rel="noopener">WhatsApp: (61) 99264-2524</a>
+    <a class="btn" href="https://wa.me/5561992642524" rel="noopener">WhatsApp: (61) 99264‑2524</a>
   </div>
 </header>
 
 <main>
   <section class="hero">
     <div class="container">
-      <h1>Quinta61 - Vinhos Importados - Entrega Premium</h1>
-      <p>Seleção de rótulos com entrega no DF.&nbsp;<strong>Pagamento na entrega.</strong></p>
+      <h1>Entrega Premium de Vinhos</h1>
+      <p>Seleção de rótulos com entrega no DF. <strong>Pagamento na entrega.</strong></p>
+      <div class="meta">Atendimento oficial via WhatsApp • seg–sáb, 10h–20h</div>
+
+      <!-- busca -->
+      <div class="searchbar" role="search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#8a8496" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input id="q" type="search" placeholder="Buscar rótulo (ex.: Malbec, Zapata, DV Catena)…" aria-label="Buscar no catálogo">
+      </div>
     </div>
   </section>
 
-  <section class="container about" id="empresa">
-    <h2>Quem somos</h2>
-    <p><strong>Quinta61 Entrega Premium</strong> atua com curadoria e entrega de vinhos. Atendimento oficial via WhatsApp.</p>
-    <ul class="facts">
-      <li>Telefone/WhatsApp: <a href="https://wa.me/5561992642524">(61) 99264-2524</a></li>
-      <li>E-mail: <a href="mailto:contato@quinta61.com.br">rede@quinta61.com.br</a></li>
-      <li>Endereço: Brasília – DF, Brasil</li>
-      <li>CNPJ: 41.229.452/0001-27</li>
-      <li>Horário: seg–sáb, 10h às 20h</li>
-    </ul>
-    <p class="small">Operamos conforme a <a href="https://www.whatsapp.com/legal/commerce-policy" target="_blank" rel="noopener">Política Empresarial do WhatsApp</a>. Venda proibida para menores de 18 anos. Se beber, não dirija.</p>
+  <!-- CARROSSEL -->
+  <section class="container">
+    <h2>Destaques</h2>
+    <div class="carousel" aria-label="Carrossel de destaques">
+      <button class="navbtn prev" aria-label="Anterior">‹</button>
+      <div id="track" class="track"></div>
+      <button class="navbtn next" aria-label="Próximo">›</button>
+    </div>
+    <small class="muted">Arraste com o dedo/mouse para navegar.</small>
   </section>
 
+  <!-- CATÁLOGO -->
   <section class="container">
-    <h2>Catálogo (galeria)</h2>
+    <h2>Catálogo completo</h2>
     <div id="grid" class="grid" aria-live="polite"></div>
   </section>
 
@@ -94,8 +112,9 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 
 <footer class="footer">
   <div class="container">
-    <p>© <span id="year"></span> Quinta61</p>
+    <p>© <span id="year"></span> Quinta61 • Brasília – DF • contato@quinta61.com.br</p>
     <p class="advert-note">Publicidade gerenciada por Vivat Phraterno Internet Brasil – CNPJ 41.229.452/0001-27</p>
+    <p><small class="muted">Operamos conforme a <a href="https://www.whatsapp.com/legal/commerce-policy" target="_blank" rel="noopener">Política Empresarial do WhatsApp</a>. Venda proibida para menores de 18 anos. Se beber, não dirija.</small></p>
   </div>
 </footer>
 
@@ -106,7 +125,11 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
   <p id="lbCap"></p>
 </dialog>
 
+<!-- FAB WhatsApp -->
+<a class="fab" href="https://wa.me/5561992642524" aria-label="Abrir WhatsApp">WhatsApp</a>
+
 <script>
+// ====== Dados (use sua pasta /images) ======
 const imagens = [
   { src:"images/alamos-malbec-2023-1.png",                titulo:"Álamos – Malbec 2023" },
   { src:"images/alma-negra-redblend.png",                 titulo:"Alma Negra – Red Blend" },
@@ -120,38 +143,66 @@ const imagens = [
   { src:"images/el-enemigo-bonarda-1.png",                titulo:"El Enemigo – Bonarda" },
   { src:"images/el-enemigo-malbec-1.png",                 titulo:"El Enemigo – Malbec" },
   { src:"images/lagrima-canela-chardonnay-o-semillon-2.png", titulo:"Lágrima Canela – Chardonnay • Semillon" },
-  { src:"images/lote-44-malbec-2022-1.png",                titulo:"Lote 44 – Malbec 2022" },
-  { src:"images/luigi-bosca-malbec-1.png",                 titulo:"Luigi Bosca – Malbec" },
-  { src:"images/malbec-adrianna-vineyard-2022-1.png",      titulo:"DV Catena – Malbec Adrianna Vineyard 2022" },
-  { src:"images/mataojo-sauvignon-reserva-1.png",          titulo:"Mataojo – Cabernet Sauvignon Reserva" },
-  { src:"images/mataojo-tannat-reserva.png",               titulo:"Mataojo – Tannat Reserva" },
+  { src:"images/lote-44-malbec-2022-1.png",               titulo:"Lote 44 – Malbec 2022" },
+  { src:"images/luigi-bosca-malbec-1.png",                titulo:"Luigi Bosca – Malbec" },
+  { src:"images/malbec-adrianna-vineyard-2022-1.png",     titulo:"DV Catena – Malbec Adrianna Vineyard 2022" },
+  { src:"images/mataojo-sauvignon-reserva-1.png",         titulo:"Mataojo – Sauvignon Reserva" },
+  { src:"images/mataojo-tannat-reserva.png",              titulo:"Mataojo – Tannat Reserva" },
   { src:"images/nicolas-catena-la-marchigiana-bonarda-1.png", titulo:"Nicolás Catena – La Marchigiana Bonarda" },
-  { src:"images/petit-vega-28-meses-tempranillo-1.png",    titulo:"Petit Vega – 28 Meses (Tempranillo)" },
-  { src:"images/petit-vega-8-meses-tempranillo.png",       titulo:"Petit Vega – 8 Meses (Tempranillo)" },
-  { src:"images/rutini-cabernet-malbec-1.png",             titulo:"Rutini – Cabernet • Malbec" },
-  { src:"images/vik-milla-cala-red-blend.png",             titulo:"VIK Milla Cala – Red Blend" }
+  { src:"images/petit-vega-28-meses-tempranillo-1.png",   titulo:"Petit Vega – 28 Meses (Tempranillo)" },
+  { src:"images/petit-vega-8-meses-tempranillo.png",      titulo:"Petit Vega – 8 Meses (Tempranillo)" },
+  { src:"images/rutini-cabernet-malbec-1.png",            titulo:"Rutini – Cabernet • Malbec" },
+  { src:"images/vik-milla-cala-red-blend.png",            titulo:"VIK Milla Cala – Red Blend" }
 ];
 
-const grid=document.getElementById('grid');
-grid.innerHTML = imagens.map(i => `
-  <figure class="card">
-    <img loading="lazy" src="${i.src}" alt="${i.titulo||'Vinho Quinta61'}">
-    <figcaption><strong>${i.titulo||'Vinho Quinta61'}</strong><br><span class="badge">Entrega premium</span></figcaption>
-  </figure>
+// ====== Render carrossel (6 destaques) ======
+const track = document.getElementById('track');
+const destaques = imagens.slice(0, 8);
+track.innerHTML = destaques.map(i => `
+  <article class="slide">
+    <img loading="lazy" src="${i.src}" alt="${i.titulo}">
+    <div class="cap"><strong>${i.titulo}</strong><br><span class="badge">Entrega premium</span></div>
+  </article>
 `).join('');
 
-const lb = document.getElementById('lb'),
-      lbImg=document.getElementById('lbImg'),
-      lbCap=document.getElementById('lbCap');
+// Navegação carrossel
+const prev = document.querySelector('.prev'), next = document.querySelector('.next');
+const step = 280; // px por clique
+prev.onclick = ()=> track.scrollBy({left:-step,behavior:'smooth'});
+next.onclick = ()=> track.scrollBy({left: step,behavior:'smooth'});
+// auto-scroll suave
+let auto = setInterval(()=> next.click(), 5000);
+track.addEventListener('pointerdown', ()=>clearInterval(auto));
+
+// ====== Render catálogo ======
+const grid = document.getElementById('grid');
+function desenhar(lista){
+  grid.innerHTML = lista.map(i => `
+    <figure class="card">
+      <img loading="lazy" src="${i.src}" alt="${i.titulo}">
+      <figcaption><strong>${i.titulo}</strong><br><span class="badge">Entrega premium</span></figcaption>
+    </figure>
+  `).join('');
+}
+desenhar(imagens);
+
+// ====== Filtro de busca ======
+const q = document.getElementById('q');
+q.addEventListener('input', ()=>{
+  const termo = q.value.toLowerCase().trim();
+  const filtrada = imagens.filter(i => (i.titulo||'').toLowerCase().includes(termo));
+  desenhar(filtrada);
+});
+
+// ====== Lightbox ======
+const lb = document.getElementById('lb'), lbImg=document.getElementById('lbImg'), lbCap=document.getElementById('lbCap');
 document.addEventListener('click', e=>{
-  const img=e.target.closest('.card img');
-  if(!img) return;
-  lbImg.src=img.src;
-  lbImg.alt=img.alt;
-  lbCap.textContent=img.alt;
-  lb.showModal();
+  const img=e.target.closest('img'); if(!img || !img.closest('.card,.slide')) return;
+  lbImg.src=img.src; lbImg.alt=img.alt; lbCap.textContent=img.alt; lb.showModal();
 });
 document.getElementById('close').onclick=()=>lb.close();
+
+// Ano
 document.getElementById('year').textContent=new Date().getFullYear();
 </script>
 </body>
