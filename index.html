@@ -94,30 +94,26 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 .fab{position:fixed;right:18px;bottom:18px;background:#25d366;color:#002611;border:none;border-radius:999px;padding:12px 16px;font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.3);z-index:20}
 .fab:hover{filter:brightness(1.05)}
 
-/* ===== LEGAL: seção embutida acessível por #hash e modal ===== */
-#legal-wrap{display:none}
-#legal:target + #legal-wrap{display:block}
+/* ===== LEGAL (PRIVACIDADE) ===== */
+/* Seção embutida, visível quando #politica na URL (crawlers da Meta veem mesmo sem JS) */
+#politica{display:none}
+#politica:target{display:block}
 .legal-panel{
-  background:#0f0e12; color:#eee; border-top:1px solid #26222c; border-bottom:1px solid #26222c;
+  background:#0f0e12;color:#eee;border-top:1px solid #26222c;border-bottom:1px solid #26222c
 }
 .legal-panel .container{max-width:900px;padding:28px 20px}
-.legal-panel h1{margin-top:.4rem}
-.legal-card{
-  background:#14121a;border:1px solid #26222c;border-radius:12px;padding:16px;margin:16px 0
-}
-.legal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.link-like{display:inline-block;padding:8px 12px;border:1px solid #2b2732;border-radius:10px;color:#eae7f5;background:#17151d}
-.link-like:hover{filter:brightness(1.05)}
+.legal-card{background:#14121a;border:1px solid #26222c;border-radius:12px;padding:16px;margin:16px 0}
 .legal-muted{color:#9a96a6;font-size:.95rem}
+.link-like{display:inline-block;padding:8px 12px;border:1px solid #2b2732;border-radius:10px;color:#eae7f5;background:#17151d;text-decoration:none}
+.link-like:hover{filter:brightness(1.05)}
 
-/* dialog modal da política (progressive enhancement) */
-dialog#politica{border:none;border-radius:12px;padding:0;max-width:min(95vw,920px);background:#111;color:#eee}
-dialog#politica .head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #26222c;background:#14121a}
-dialog#politica .content{padding:16px}
-dialog#politica h2{margin-top:1rem}
-#closePolitica{border:none;background:#0009;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer}
+/* Dialog modal (UX melhor quando há JS) */
+dialog#pp{border:none;border-radius:12px;padding:0;max-width:min(95vw,920px);background:#111;color:#eee}
+dialog#pp .head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #26222c;background:#14121a}
+dialog#pp .content{padding:16px}
+#closePP{border:none;background:#0009;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer}
 
-/* responsivo */
+/* Responsivo */
 @media (max-width:560px){
   .slide{min-width:85vw}
   .slide img{height:340px}
@@ -128,7 +124,7 @@ dialog#politica h2{margin-top:1rem}
 
 <header class="header">
   <div class="container">
-    <a class="brand" href="#"><span>Quinta61</span></a>
+    <a class="brand" href="https://quinta61.com.br"><span>Quinta61</span></a>
     <div class="actions">
       <a class="icon" href="https://www.instagram.com/quinta61vinhos" target="_blank" rel="noopener" aria-label="Instagram Quinta61">
         <!-- ícone instagram -->
@@ -194,84 +190,77 @@ dialog#politica h2{margin-top:1rem}
     <p class="advert-note">Publicidade gerenciada por Vivat Phraterno Internet Brasil – CNPJ 41.229.452/0001-27</p>
     <p>
       <small class="muted">
+        <!-- link acessível por hash: a Meta consegue abrir a política diretamente -->
         <a href="#politica" id="openPrivacy">Política de Privacidade</a> •
-        <a href="#politica" aria-label="Termos de Uso">Termos de Uso</a> •
         <a href="https://www.whatsapp.com/legal/commerce-policy" target="_blank" rel="noopener">Política Empresarial do WhatsApp</a>
       </small>
     </p>
   </div>
 </footer>
 
-<!-- ===== LEGAL via âncora (#politica) para crawlers sem JS ===== -->
-<a id="legal"></a>
-<section id="legal-wrap" class="legal-panel">
+<!-- ===== POLÍTICA DE PRIVACIDADE (PRÓPRIA DO QUINTA61) ===== -->
+<section id="politica" class="legal-panel">
   <div class="container">
-    <h1>Política de Privacidade & Termos de Uso</h1>
+    <h1>Política de Privacidade – Quinta61</h1>
     <p class="legal-muted">
-      Última atualização: <strong>19/08/2025</strong> • Controlador: <strong>Vivat Phraterno Internet Brasil LTDA</strong> (CNPJ 41.229.452/0001-27) •
-      Contato: <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> • WhatsApp oficial: <a href="https://wa.me/5561992642524">+55 61 99264‑2524</a>
+      Domínio oficial: <strong>quinta61.com.br</strong> • Última atualização: <strong>19/08/2025</strong>
     </p>
 
     <div class="legal-card">
-      <h2>1. Dados coletados</h2>
-      <ul>
-        <li><strong>Site (quinta61.com.br):</strong> IP, data/hora, páginas acessadas, cookies e identificadores do navegador.</li>
-        <li><strong>WhatsApp Business:</strong> número, nome/perfil, mensagens e mídias, recibos de entrega/leitura, preferências (opt‑in/opt‑out) e metadados da Meta.</li>
-        <li><strong>Pedidos/entrega:</strong> itens solicitados, endereço e contatos fornecidos por você.</li>
-      </ul>
-      <h2>2. Bases legais e finalidades</h2>
-      <ul>
-        <li><strong>Execução de contrato</strong>: orçamentos, pedidos e entrega.</li>
-        <li><strong>Legítimo interesse</strong>: suporte, prevenção a fraudes e melhoria de experiência.</li>
-        <li><strong>Consentimento</strong>: envio de ofertas/novidades via WhatsApp; você pode revogar a qualquer momento.</li>
-        <li><strong>Obrigação legal</strong>: registros fiscais/contábeis.</li>
-      </ul>
-      <h2>3. Compartilhamento</h2>
-      <p>Com a <strong>Meta</strong> (WhatsApp/Cloud API), provedores de hospedagem/infra (incluindo automações n8n em servidor próprio), parceiros logísticos e meios de pagamento, apenas o necessário às finalidades. Não vendemos dados.</p>
+      <h2>1. Quem somos</h2>
+      <p><strong>Quinta61</strong>, operada por <strong>Vivat Phraterno Internet Brasil LTDA</strong>, CNPJ 41.229.452/0001-27. Atendemos oficialmente pelo WhatsApp
+        <a href="https://wa.me/5561992642524" target="_blank" rel="noopener">+55 61 99264‑2524</a> e pelo e-mail
+        <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a>. Nosso foco é a curadoria e entrega premium de vinhos no Distrito Federal.</p>
 
-      <h2>4. Transferência internacional</h2>
-      <p>Serviços utilizados podem operar no Brasil e no exterior, observando salvaguardas compatíveis com a LGPD.</p>
+      <h2>2. Dados que coletamos</h2>
+      <ul>
+        <li><strong>Contato e pedidos:</strong> nome, telefone, e-mail (quando informado), endereço de entrega e itens de interesse.</li>
+        <li><strong>Atendimento via WhatsApp Business:</strong> mensagens, áudios, imagens e recibos de entrega/leitura fornecidos pela plataforma.</li>
+        <li><strong>Dados do site (quinta61.com.br):</strong> cookies essenciais, IP, data/hora e páginas acessadas para estatísticas agregadas e segurança.</li>
+      </ul>
+
+      <h2>3. Para que usamos</h2>
+      <ul>
+        <li><strong>Execução do serviço:</strong> orçamentos, confirmação de pedidos e entrega.</li>
+        <li><strong>Suporte e qualidade:</strong> responder solicitações e melhorar experiência.</li>
+        <li><strong>Marketing consentido:</strong> envio de ofertas pelo WhatsApp <strong>somente com seu opt‑in</strong> (você pode sair a qualquer momento).</li>
+        <li><strong>Obrigação legal/fiscal:</strong> emissão e guarda de registros conforme a lei.</li>
+      </ul>
+
+      <h2>4. Compartilhamento</h2>
+      <p>Não vendemos seus dados. Compartilhamos apenas quando necessário com: (i) <strong>Meta</strong> (WhatsApp Business Platform) para viabilizar a troca de mensagens; (ii) provedores de
+        <em>hosting</em> e automações (incluindo n8n em servidor próprio); (iii) parceiros logísticos e meios de pagamento escolhidos por você.</p>
 
       <h2>5. Retenção</h2>
-      <p>Registros de atendimento/WhatsApp por até <strong>24 meses</strong> (ou prazo superior quando exigido por lei/defesa de direitos). Documentos fiscais conforme prazos legais.</p>
+      <p>Registros de atendimento por até <strong>24 meses</strong> (ou prazo superior quando necessário para cumprir obrigações legais ou resguardar direitos). Documentos fiscais seguem prazos legais aplicáveis.</p>
 
-      <h2>6. Direitos do titular</h2>
-      <p>Você pode solicitar confirmação de tratamento, acesso, correção, portabilidade, anonimização/eliminação, informação sobre compartilhamentos e revisão de decisões automatizadas, além de <strong>revogar consentimento</strong>. Contato: <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> ou envie “PARAR” no WhatsApp.</p>
+      <h2>6. Seus direitos (LGPD)</h2>
+      <p>Você pode solicitar confirmação do tratamento, acesso, correção, portabilidade, anonimização/eliminação, informação sobre compartilhamentos e revisão de decisões automatizadas, além de <strong>revogar consentimento</strong> para comunicações. Contato: <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> ou envie “PARAR” no WhatsApp.</p>
 
       <h2>7. Cookies</h2>
-      <p>Usamos cookies essenciais e, quando aplicável, analíticos agregados. Você pode gerenciá-los no navegador.</p>
+      <p>Usamos cookies essenciais para o funcionamento do site e, quando aplicável, analíticos agregados sem identificação direta. Você pode gerenciá-los no navegador.</p>
 
       <h2>8. Segurança</h2>
-      <p>HTTPS, controle de acesso, registro de atividades e boas práticas de segurança. Nenhuma medida é infalível, mas buscamos proteção contínua.</p>
+      <p>Site servido em <strong>HTTPS</strong>, controles de acesso e boas práticas de segurança. Embora nenhuma medida seja absoluta, atuamos continuamente para proteger seus dados.</p>
 
-      <h2>9. Atendimento por WhatsApp</h2>
-      <ul>
-        <li>Usamos a <strong>WhatsApp Business Platform</strong> para atendimento e automações.</li>
-        <li>Mensagens promocionais somente com <strong>consentimento</strong>; opt‑out a qualquer momento.</li>
-        <li>Conteúdos enviados podem ser usados para suporte e garantia de qualidade.</li>
-      </ul>
+      <h2>9. Público-alvo</h2>
+      <p>Venda de bebidas alcoólicas é proibida para menores de 18 anos. Nosso conteúdo e atendimento destinam-se a maiores de idade.</p>
 
-      <h2>10. Crianças e adolescentes</h2>
-      <p>Venda de bebidas alcoólicas proibida para menores de 18 anos.</p>
+      <h2>10. Encarregado (DPO)</h2>
+      <p><strong>Responsável de Privacidade – Quinta61</strong><br>
+        Contato: <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a></p>
 
-      <h2>11. Termos de Uso (resumo)</h2>
-      <ul>
-        <li>O conteúdo do site é informativo; preços/estoque podem variar conforme confirmação no WhatsApp.</li>
-        <li>Uso do site implica aceitação destes termos e da Política de Privacidade.</li>
-        <li>É vedado uso para fins ilícitos ou que infrinjam direitos de terceiros.</li>
-      </ul>
-
-      <div class="legal-actions">
-        <a class="link-like" href="#top" aria-label="Fechar">Fechar</a>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+        <a class="link-like" href="#top">Fechar</a>
         <a class="btn" href="https://wa.me/5561992642524">Falar no WhatsApp</a>
       </div>
     </div>
 
-    <p class="legal-muted">Encarregado (DPO): Responsável de Privacidade – contato: <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a>. Podemos atualizar esta página e indicaremos a nova data de vigência.</p>
+    <p class="legal-muted">Esta Política pode ser atualizada para refletir mudanças de operação ou legais; a data de vigência será ajustada nesta página.</p>
   </div>
 </section>
 
-<!-- lightbox -->
+<!-- ===== Lightbox de imagens ===== -->
 <dialog id="lb" aria-label="Visualização da imagem">
   <button id="close" aria-label="Fechar">✕</button>
   <img id="lbImg" alt="">
@@ -281,19 +270,17 @@ dialog#politica h2{margin-top:1rem}
 <!-- FAB WhatsApp -->
 <a class="fab" href="https://wa.me/5561992642524" aria-label="Abrir WhatsApp">WhatsApp</a>
 
-<!-- Modal opcional (UX melhor) — abre se clicar no link e houver JS -->
-<dialog id="politica" aria-label="Política de Privacidade">
+<!-- Modal opcional da Política (melhor UX; conteúdo resumido) -->
+<dialog id="pp" aria-label="Política de Privacidade (resumo)">
   <div class="head">
     <strong>Política de Privacidade • Quinta61</strong>
-    <button id="closePolitica" title="Fechar">✕</button>
+    <button id="closePP" title="Fechar">✕</button>
   </div>
   <div class="content">
-    <!-- Conteúdo enxuto, igual ao da seção; pode manter só o essencial -->
-    <p><strong>Controlador:</strong> Vivat Phraterno Internet Brasil LTDA – CNPJ 41.229.452/0001-27 •
-      E-mail: <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> • WhatsApp: <a href="https://wa.me/5561992642524">+55 61 99264‑2524</a></p>
-    <h2>Como tratamos seus dados</h2>
-    <p>Coletamos dados técnicos do site e informações necessárias ao atendimento no WhatsApp Business (incl. mensagens e recibos). Finalidades: atendimento, entrega, obrigações legais e, com consentimento, comunicações de marketing. Direitos LGPD: acesso, correção, exclusão, portabilidade, oposição e revogação de consentimento.</p>
-    <p>Mais detalhes na seção <a href="#politica">completa</a>.</p>
+    <p><strong>Controlador:</strong> Vivat Phraterno Internet Brasil LTDA (CNPJ 41.229.452/0001-27) •
+      <strong>Domínio:</strong> quinta61.com.br • <strong>Contato:</strong> <a href="mailto:rede@quinta61.com.br">rede@quinta61.com.br</a> •
+      <strong>WhatsApp:</strong> <a href="https://wa.me/5561992642524">+55 61 99264‑2524</a></p>
+    <p>Usamos seus dados para atender pedidos e entregar vinhos no DF; marketing só com seu consentimento. Veja a versão completa <a href="#politica">aqui</a>.</p>
   </div>
 </dialog>
 
@@ -311,7 +298,7 @@ const imagens = [
   { src:"images/dv-catena-malbec-1.png",                  titulo:"DV Catena – Malbec" },
   { src:"images/el-enemigo-bonarda-1.png",                titulo:"El Enemigo – Bonarda" },
   { src:"images/el-enemigo-malbec-1.png",                 titulo:"El Enemigo – Malbec" },
-  { src:"images/lagrima-canela-chardonnay-o-semillon-2.png", titulo:"Lágrima Canela – Chardonnay • Semillon" },
+  { src:"images/lagrima-canela-chardonnay-o_semillon-2.png", titulo:"Lágrima Canela – Chardonnay • Semillon" },
   { src:"images/lote-44-malbec-2022-1.png",               titulo:"Lote 44 – Malbec 2022" },
   { src:"images/luigi-bosca-malbec-1.png",                titulo:"Luigi Bosca – Malbec" },
   { src:"images/malbec-adrianna-vineyard-2022-1.png",     titulo:"DV Catena – Malbec Adrianna Vineyard 2022" },
@@ -340,14 +327,12 @@ const step = 380;
 prev.onclick = ()=> track.scrollBy({left:-step,behavior:'smooth'});
 next.onclick = ()=> track.scrollBy({left: step,behavior:'smooth'});
 
-// Drag
+// Drag e auto-scroll
 let isDown=false,startX,scrollStart,raf,speed=1.2;
 track.addEventListener('pointerdown',e=>{isDown=true;track.setPointerCapture(e.pointerId);startX=e.clientX;scrollStart=track.scrollLeft; pause();});
 track.addEventListener('pointermove',e=>{if(!isDown) return; const dx=e.clientX-startX; track.scrollLeft=scrollStart-dx;});
 track.addEventListener('pointerup',()=>{isDown=false;resume();});
 track.addEventListener('pointerleave',()=>{isDown=false;});
-
-// Auto-scroll loop
 function tick(){ track.scrollLeft += speed; if(track.scrollLeft >= track.scrollWidth - track.clientWidth - 1){ track.scrollLeft = 0; } raf=requestAnimationFrame(tick); }
 function pause(){ cancelAnimationFrame(raf); }
 function resume(){ cancelAnimationFrame(raf); raf=requestAnimationFrame(tick); }
@@ -386,21 +371,21 @@ document.getElementById('close').onclick=()=>lb.close();
 // ====== util
 document.getElementById('year').textContent=new Date().getFullYear();
 
-// ====== Política de Privacidade — modal elegante + fallback hash
+// ====== Política de Privacidade — modal (UX) + hash (acessível à Meta)
 const openPrivacy = document.getElementById('openPrivacy');
-const dlg = document.getElementById('politica');
-if(openPrivacy && dlg && dlg.showModal){
+const dlgPP = document.getElementById('pp');
+if(openPrivacy && dlgPP && dlgPP.showModal){
   openPrivacy.addEventListener('click', e=>{
-    // Abre modal e também ajusta hash para #politica (acessível/compartilhável)
+    // Abre modal e garante hash #politica para linkabilidade
     e.preventDefault();
     if(location.hash !== '#politica') history.replaceState(null,'','#politica');
-    dlg.showModal();
+    try{ dlgPP.showModal(); }catch{}
   });
-  document.getElementById('closePolitica').onclick=()=>{ dlg.close(); if(location.hash==='#politica') history.replaceState(null,'','#top'); };
+  document.getElementById('closePP').onclick=()=>{ dlgPP.close(); if(location.hash==='#politica') history.replaceState(null,'','#top'); };
 }
-// Se a pessoa acessar direto https://quinta61.com.br/#politica e houver suporte a dialog, abrir modal automaticamente
+// Se acessar direto https://quinta61.com.br/#politica e houver suporte a dialog, abre modal automaticamente
 window.addEventListener('load',()=>{
-  if(location.hash==='#politica' && dlg?.showModal) try{ dlg.showModal(); }catch{}
+  if(location.hash==='#politica' && dlgPP?.showModal) try{ dlgPP.showModal(); }catch{}
 });
 </script>
 </body>
